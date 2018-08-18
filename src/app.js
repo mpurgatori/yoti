@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 
 
 //css entry
-import './styles/main.scss';
+import './styles/_main.scss';
 
 //components
-//import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
+import LeftPanel from './components/LeftPanel';
+import MainPanel from './components/MainPanel';
+
 
 
 //Main component
@@ -23,7 +26,9 @@ class App extends React.Component {
   render() {
     return (
         <div className="content">
-           HELLO
+           <Navbar />
+           <LeftPanel />
+           <MainPanel />
         </div>
     )
   }

@@ -1,0 +1,30 @@
+
+.navbar-left {
+    .navbar-brand {
+        padding-left: 50px;
+    }
+}
+
+.navbar-right {
+    margin-right: 0;
+    .navbar-brand {
+        line-height: 28px;
+    }
+}
+
+.navbar-connected-text {
+    font-size: 0.8em;
+    margin-right: 15px;
+}
+
+.navbar-user-container {
+    display: inline-block;
+    padding: 5px 0 0 15px;
+}
+
+
+
+.navbar-connected {
+    background-color: $color-1a;
+    height: 100%;
+}
