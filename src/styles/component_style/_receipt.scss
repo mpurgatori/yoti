@@ -1,0 +1,31 @@
+
+.receipt {
+    border: 1px solid #e7e7e7;
+    margin-bottom: 25px;
+}
+
+.receipt-date {
+    background-color:$color-16;
+    padding: 15px;
+}
+
+.receipt-left {
+    display: inline-block;
+    padding: 25px 20px;
+    .icon-activity_tick, .yoti-shared {
+        margin-right: 10px;
+        vertical-align: top;
+    }
+    .icon-user_selfie_ph {
+        margin-right: 40px;
+        height: 26px;
+    }
+}
+
+.receipt-right {
+    color: $color-3b;
+    float: right;
+    font-size: 14px;
+    padding: 25px 20px;
+    text-align: right;
+}

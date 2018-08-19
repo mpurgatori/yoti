@@ -5,7 +5,7 @@ export default class LeftPanel extends React.Component {
       return (
           <div className="left-panel">
             <div className="activity">
-                <span className="icon icon-activity"></span>
+                <span className="icon section-iconicon-activity"></span>
                 <span>Activity</span>
             </div>
           </div>

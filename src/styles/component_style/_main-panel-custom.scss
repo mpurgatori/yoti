@@ -3,5 +3,25 @@
     float: right;    
     margin-top: 60px;
     min-height: calc(100vh - 60px);
+    padding: 20px;
     width: 80%;
+}
+
+.main-panel-header {
+    border-bottom: 1px solid $color-2a;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.main-panel-subheader {
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.main-panel-subheader-text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-top: 10px;
 }
