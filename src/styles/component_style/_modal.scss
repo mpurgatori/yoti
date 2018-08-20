@@ -1,0 +1,94 @@
+
+.modal-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    opacity: 1;
+    z-index: 9999;
+    padding: 1rem;
+    position: fixed;
+    animation: show .5s ease;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    min-height: 50vh;
+    max-height: 85vh;
+    width: 420px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+}
+
+.close-button {
+    color: #fff;
+    font-size: 35px;
+    position: absolute;
+    right: -30px;
+    top: -18px;
+}
+
+.close-button:after {
+    display: inline-block;
+    content: "\00d7";
+}
+
+.modal-application-box {
+    border-radius: 10px 10px 0 0;
+    height: 160px;
+    text-align: center;
+}
+
+.application-image {
+    height: 40px;
+    margin-top: 65px;
+}
+
+.modal-middle-section {
+    color: black;
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    .selfie {
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+        margin-top: 50px;
+    }
+    .icon-user_selfie_ph_medium{
+        margin-top: 50px;
+    }
+    .icon-receipt_confirmed {
+        margin-top: 25px;
+    }
+}
+
+.app-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.app-viewed {
+    border-bottom: 1px solid $color-2a;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.modal-attributes {
+    text-align: left;
+}
+
+.attribute {
+    margin-bottom: 10px;
+}
+
+.attribute-key {
+    font-size: 14px;
+    color: $color-2b;
+}

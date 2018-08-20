@@ -1,4 +1,6 @@
 import React from "react";
+import Modal from './Modal.js';
+
 
 export default class Receipt extends React.Component {
 
@@ -6,9 +8,24 @@ export default class Receipt extends React.Component {
         super(props)
         this.state = {
             time: '',
-            date: ''
+            date: '',
+            modalOpen: false
         }
         this.convertTimeStamp = this.convertTimeStamp.bind(this);
+        this.modalHandlerOpen = this.modalHandlerOpen.bind(this);
+        this.modalHandlerClose = this.modalHandlerClose.bind(this);
+    }
+
+    modalHandlerOpen(){
+        this.setState({modalOpen: true})
+    }
+
+    modalHandlerClose(e){
+        if (e.target.classList.contains("dont-close"))
+        {
+            return false;
+        }
+        this.setState({modalOpen: false})
     }
 
     convertTimeStamp(stamp) {
@@ -34,23 +51,24 @@ export default class Receipt extends React.Component {
     }
 
     render() {
-        console.log(this.props.receipt,'*******')
       return (
-        <div className="receipt">
-            <div className="receipt-date">{this.state.date}</div>
-            <div className="receipt-info">
-               <div className="receipt-left">
-                    <span className="icon icon-activity_tick"></span>
-                    <span className="icon icon-user_selfie_ph"></span>
-                    <span className="yoti-shared">Yoti shared</span>
-               </div>
-               <div className="receipt-right">
-                    <div>{this.state.time}</div>
-
-                    <div>{this.state.date}</div>
-               </div> 
-            </div>
-         </div>
+        <div>
+            <div className="receipt" onClick={this.modalHandlerOpen}>
+                <div className="receipt-date">{this.state.date}</div>
+                <div className="receipt-info">
+                   <div className="receipt-left">
+                        <span className="icon icon-activity_tick"></span>
+                        <span className="icon icon-user_selfie_ph"></span>
+                        <span className="yoti-shared">Yoti shared</span>
+                   </div>
+                   <div className="receipt-right">
+                        <div>{this.state.time}</div>
+                        <div>{this.state.date}</div>
+                   </div> 
+                </div>
+             </div>
+            <Modal date={this.state.date} time={this.state.time} info={this.props.receipt} isOpen={this.state.modalOpen} close={this.modalHandlerClose} />
+        </div>
       )
     }
   }
