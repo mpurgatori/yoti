@@ -21,3 +21,19 @@ export const attrString = str => {
     return toTitleCase(newStr);
 }
 
+//converts unix time stamp to time and date formatted
+export const convertTimeStamp = stamp => {
+    const a = new Date(stamp * 1000);
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const year = a.getFullYear();
+    const month = months[a.getMonth()];
+    const date = a.getDate();
+    const hour = a.getHours();
+    let min = a.getMinutes();
+    if (parseInt(min, 10) < 10)
+    min = `0${min}`;
+    const sec = a.getSeconds();
+    const dateFormat = `${date} ${month} ${year}`;
+    const timeFormat = `${hour}:${min}`;
+    return [dateFormat, timeFormat];
+}

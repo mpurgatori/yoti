@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from './Modal.js';
 
+import { convertTimeStamp } from '../helpers/helpers';
 
 export default class Receipt extends React.Component {
 
@@ -11,7 +12,6 @@ export default class Receipt extends React.Component {
             date: '',
             modalOpen: false
         }
-        this.convertTimeStamp = this.convertTimeStamp.bind(this);
         this.modalHandlerOpen = this.modalHandlerOpen.bind(this);
         this.modalHandlerClose = this.modalHandlerClose.bind(this);
     }
@@ -28,25 +28,9 @@ export default class Receipt extends React.Component {
         this.setState({modalOpen: false})
     }
 
-    convertTimeStamp(stamp) {
-        const a = new Date(stamp * 1000);
-        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-        const year = a.getFullYear();
-        const month = months[a.getMonth()];
-        const date = a.getDate();
-        const hour = a.getHours();
-        let min = a.getMinutes();
-        if (parseInt(min, 10) < 10)
-        min = `0${min}`;
-        const sec = a.getSeconds();
-        const dateFormat = `${date} ${month} ${year}`;
-        const timeFormat = `${hour}:${min}`;
-        return [dateFormat, timeFormat];
-    }
-
     componentWillMount() {
-        const convertedTime = this.convertTimeStamp(this.props.receipt.transaction["unix-timestamp"])[1];
-        const convertedDate = this.convertTimeStamp(this.props.receipt.transaction["unix-timestamp"])[0];
+        const convertedTime = convertTimeStamp(this.props.receipt.transaction["unix-timestamp"])[1];
+        const convertedDate = convertTimeStamp(this.props.receipt.transaction["unix-timestamp"])[0];
         this.setState({ time: convertedTime, date: convertedDate })
     }
 
