@@ -55,32 +55,32 @@ export default class Modal extends React.Component {
 
           {
             this.props.info.type === "application" &&
-            <div>
-              <div className="modal-application-box dont-close" style={{backgroundColor: this.props.info.application.appearance["bg-color"]}}>
+            <div className="dont-close">
+              <div className="modal-application-box dont-close dont-close" style={{backgroundColor: this.props.info.application.appearance["bg-color"]}}>
                 {this.props.info.application.appearance["bg-img"] &&
-                  <img className="application-image dont-close" src={this.props.info.application.appearance["bg-img"]} />
+                  <img className="application-image dont-close dont-close" src={this.props.info.application.appearance["bg-img"]} />
                 }
                 {this.props.info.application.appearance["bg-logo"] &&
-                  <img className="application-image dont-close" src={this.props.info.application.appearance["bg-logo"]} />
+                  <img className="application-image dont-close dont-close" src={this.props.info.application.appearance["bg-logo"]} />
                 }
               </div>
-              <div className="modal-middle-section">
-                <img className="selfie" src={this.state.selfie}></img>
+              <div className="modal-middle-section dont-close">
+                <img className="selfie dont-close" src={this.state.selfie}></img>
                 <br/>
-                <span className="icon icon-receipt_confirmed"></span>
-                <div className="app-name">{this.props.info.application.name}</div>
-                <div className="app-viewed">
-                  <div>viewed this informtion about you</div>
-                  <div>{`at ${this.props.time} on ${this.props.date}`}</div>
+                <span className="icon icon-receipt_confirmed dont-close"></span>
+                <div className="app-name dont-close">{this.props.info.application.name}</div>
+                <div className="app-viewed dont-close">
+                  <div className="dont-close">viewed this informtion about you</div>
+                  <div className="dont-close">{`at ${this.props.time} on ${this.props.date}`}</div>
                 </div>
-                <div className="modal-attributes">
+                <div className="modal-attributes dont-close">
                   {
                     this.props.info.transaction.attributes.map( attr => {
                       if (attr.hasOwnProperty('selfie')){return}
                       return (
-                        <div className="attribute">
-                          <div className="attribute-key">{this.attrString(Object.keys(attr)[0])}</div>
-                          <div className="attribute-value">{attr[Object.keys(attr)[0]]}</div>
+                        <div className="attribute dont-close">
+                          <div className="attribute-key dont-close">{this.attrString(Object.keys(attr)[0])}</div>
+                          <div className="attribute-value dont-close">{attr[Object.keys(attr)[0]]}</div>
                         </div>     
                       )
                     })
@@ -91,24 +91,25 @@ export default class Modal extends React.Component {
             }
             {
               this.props.info.type === "share" &&
-              <div>
-                <div className="modal-middle-section">
+              <div className="dont-close">
+                <div className="modal-middle-section dont-close">
                   {!this.state.selfie ? (
-                      <span className="icon icon-user_selfie_ph_medium"></span>
+                      <span className="icon icon-user_selfie_ph_medium dont-close"></span>
                     ) : (
-                      <img className="selfie" src={this.state.selfie}></img>
+                      <img className="selfie dont-close" src={this.state.selfie}></img>
                   )}
                   <br/>
-                  <span className="icon icon-receipt_confirmed"></span>
-                <div className="modal-attributes">
+                  <span className="icon icon-receipt_confirmed dont-close"></span>
+                  <div className="app-name dont-close">Yoti Shared</div>
+                <div className="modal-attributes dont-close">
                   {
                     this.props.info.transaction.attributes.map( attr => {
                       console.log(typeof attr, 'ATTRIBUTE')
                       if (attr.hasOwnProperty('selfie')){return}
                       return (
-                        <div className="attribute">
-                          <div className="attribute-key">{this.attrString(Object.keys(attr)[0])}</div>
-                          <div className="attribute-value">{attr[Object.keys(attr)[0]]}</div>
+                        <div className="attribute dont-close">
+                          <div className="attribute-key dont-close">{this.attrString(Object.keys(attr)[0])}</div>
+                          <div className="attribute-value dont-close">{attr[Object.keys(attr)[0]]}</div>
                         </div>     
                       )
                     })

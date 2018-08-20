@@ -8,7 +8,9 @@
 @import './component_style/receipt.scss';
 @import './component_style/modal.scss';
 
-
+html {
+    background-color: $color-16;
+}
 .icon {
     display: inline-block;
 }
