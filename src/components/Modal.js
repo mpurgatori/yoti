@@ -1,5 +1,9 @@
 import React from "react";
 
+import { attrString } from '../helpers/helpers';
+
+
+
 export default class Modal extends React.Component {
 
     constructor(props){
@@ -27,16 +31,6 @@ export default class Modal extends React.Component {
       }
       this.setState({selfie: setSelfie});;
     }
-
-    attrString(str) {
-      let newStr = str.replace(/(\w)(-)(\w)/g, '$1 $3');
-      const toTitleCase = str => {
-        return str.replace(/\w\S*/g, (txt)=> {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-    }
-    return toTitleCase(newStr);
-  }
 
     componentWillMount() {
       this.selfieDisplay();
@@ -79,7 +73,7 @@ export default class Modal extends React.Component {
                       if (attr.hasOwnProperty('selfie')){return}
                       return (
                         <div className="attribute dont-close">
-                          <div className="attribute-key dont-close">{this.attrString(Object.keys(attr)[0])}</div>
+                          <div className="attribute-key dont-close">{attrString(Object.keys(attr)[0])}</div>
                           <div className="attribute-value dont-close">{attr[Object.keys(attr)[0]]}</div>
                         </div>     
                       )
@@ -108,7 +102,7 @@ export default class Modal extends React.Component {
                       if (attr.hasOwnProperty('selfie')){return}
                       return (
                         <div className="attribute dont-close">
-                          <div className="attribute-key dont-close">{this.attrString(Object.keys(attr)[0])}</div>
+                          <div className="attribute-key dont-close">{attrString(Object.keys(attr)[0])}</div>
                           <div className="attribute-value dont-close">{attr[Object.keys(attr)[0]]}</div>
                         </div>     
                       )
