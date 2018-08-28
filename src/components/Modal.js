@@ -9,7 +9,7 @@ export default class Modal extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          selfie:''
+          selfie: this.selfieDisplay()
         }
     }
 
@@ -20,7 +20,6 @@ export default class Modal extends React.Component {
         setSelfie = "../src/styles/assets/images/arnold.jpg"
       }
       else{
-        console.log(this.props.info.transaction.attributes[1].selfie,'QWERT')
 
         for (let i = 0; i < this.props.info.transaction.attributes.length; i++)
         {
@@ -29,16 +28,11 @@ export default class Modal extends React.Component {
           }          
         }
       }
-      this.setState({selfie: setSelfie});;
-    }
-
-    componentWillMount() {
-      this.selfieDisplay();
+      return setSelfie;
     }
 
 
     render() {
-    console.log(this.state.selfie,'***&&&***')
     const displayModal = this.props.isOpen ? 'block' : 'none';
 
       return (
@@ -98,7 +92,6 @@ export default class Modal extends React.Component {
                 <div className="modal-attributes dont-close">
                   {
                     this.props.info.transaction.attributes.map( attr => {
-                      console.log(typeof attr, 'ATTRIBUTE')
                       if (attr.hasOwnProperty('selfie')){return}
                       return (
                         <div className="attribute dont-close">

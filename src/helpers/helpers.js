@@ -37,3 +37,9 @@ export const convertTimeStamp = stamp => {
     const timeFormat = `${hour}:${min}`;
     return [dateFormat, timeFormat];
 }
+
+
+export const timeStampHour = stamp => {
+    const a = new Date(stamp * 1000);
+    return a.getHours();
+}
